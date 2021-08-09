@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3
 #
 # Copyright 2014 Tim O'Shea
 #
@@ -19,7 +19,7 @@
 # the Free Software Foundation, Inc., 51 Franklin Street,
 # Boston, MA 02110-1301, USA.
 #
-from plotter_base import *
+from .plotter_base import *
 class value_plot(plotter_base):
     def __init__(self, label="", *args):
         plotter_base.__init__(self, blkname="value_plot", label=label, *args)
@@ -42,7 +42,7 @@ class value_plot(plotter_base):
         self.hist.append(x);
 
         # pass data
-        self.curve_data[0] = (range(1,len(self.hist)), self.hist);
+        self.curve_data[0] = (list(range(1,len(self.hist))), self.hist);
 
         # trigger update
         self.emit(QtCore.SIGNAL("updatePlot(int)"), 0)

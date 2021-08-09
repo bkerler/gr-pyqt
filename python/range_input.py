@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3
 #
 # Copyright 2015 Tim O'Shea
 #
@@ -23,7 +23,7 @@ import numpy
 from gnuradio import gr;
 import pylab
 import numpy
-from PyQt4 import Qt, QtCore, QtGui
+from PyQt5 import Qt, QtCore, QtGui
 import pmt,pprint
 
 class range_input(gr.sync_block, QtGui.QGroupBox):
@@ -76,7 +76,7 @@ class range_input(gr.sync_block, QtGui.QGroupBox):
         lenval = int(eval(str(self.leLen.text().toUtf8())))
         goode = self.filemax - lenval
         self.scroll.setMaximum(goode)
-        print lenval
+        print(lenval)
         self.scroll.setSingleStep(lenval/2.0)
         self.scroll.setSingleStep(lenval)
         self.values_changed()
@@ -88,7 +88,7 @@ class range_input(gr.sync_block, QtGui.QGroupBox):
 
 
     def values_changed(self):
-        (s,l) = map(lambda x: pmt.from_long(int(eval(str(x.text().toUtf8())))),[self.leStart,self.leLen])
+        (s,l) = [pmt.from_long(int(eval(str(x.text().toUtf8())))) for x in [self.leStart,self.leLen]]
         self.message_port_pub(pmt.intern("range"), pmt.cons(s,l))
 
     def work(self, input_items, output_items):

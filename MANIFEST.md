@@ -1,20 +1,17 @@
-title: gr-pyqt
-brief: Python QT Plotters and Message Tools Repo
-tags:
-  - gui
-  - plotting
-  - pyqt
-  - pyqwt
+title: The PYQT OOT Module
+brief: Short description of gr-pyqt
+tags: # Tags are arbitrary, but look at CGRAN what other authors are using
+  - sdr
 author:
-  - Tim O'Shea <tim.oshea753@gmail.com>
+  - Author Name <authors@email.address>
 copyright_owner:
-  - Tim O'Shea <tim.oshea753@gmail.com>
-dependencies:
-  - gnuradio (>= 3.7.0)
-repo: https://github.com/osh/gr-pyqt.git
-stable_release: HEAD
-icon: http://pyqwt.sourceforge.net/images/m51.png
+  - Copyright Owner 1
+license:
+gr_supported_version: # Put a comma separated list of supported GR versions here
+#repo: # Put the URL of the repository here, or leave blank for default
+#website: <module_website> # If you have a separate project website, put it here
+#icon: <icon_url> # Put a URL to a square image here that will be used as an icon on CGRAN
 ---
-
-There blocks provide lots of message and burst plotting and
-manipulation capabilities for GNU RAdio
+A longer, multi-line description of gr-pyqt.
+You may use some *basic* Markdown here.
+If left empty, it will try to find a README file instead.

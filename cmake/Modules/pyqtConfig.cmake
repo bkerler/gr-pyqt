@@ -1,4 +1,6 @@
-INCLUDE(FindPkgConfig)
+if(NOT PKG_CONFIG_FOUND)
+    INCLUDE(FindPkgConfig)
+endif()
 PKG_CHECK_MODULES(PC_PYQT pyqt)
 
 FIND_PATH(
@@ -22,9 +24,10 @@ FIND_LIBRARY(
           /usr/local/lib64
           /usr/lib
           /usr/lib64
-)
+          )
+
+include("${CMAKE_CURRENT_LIST_DIR}/pyqtTarget.cmake")
 
 INCLUDE(FindPackageHandleStandardArgs)
 FIND_PACKAGE_HANDLE_STANDARD_ARGS(PYQT DEFAULT_MSG PYQT_LIBRARIES PYQT_INCLUDE_DIRS)
 MARK_AS_ADVANCED(PYQT_LIBRARIES PYQT_INCLUDE_DIRS)
-

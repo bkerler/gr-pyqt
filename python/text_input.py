@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3
 #
 # Copyright 2014 Tim O'Shea
 #
@@ -23,7 +23,7 @@ import numpy
 from gnuradio import gr;
 import pylab
 import numpy
-from PyQt4 import Qt, QtCore, QtGui
+from PyQt5 import Qt, QtCore, QtGui
 import pmt
 
 class text_input(gr.sync_block, QtGui.QLineEdit):

@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3
 #
 # Copyright 2015 Tim O'Shea
 #
@@ -23,8 +23,8 @@ import numpy
 from gnuradio import gr;
 import pylab
 
-from PyQt4 import Qt, QtCore, QtGui
-import PyQt4.Qwt5 as Qwt
+from PyQt5 import Qt, QtCore, QtGui
+import PyQt5.Qwt6 as Qwt
 #from PyQt4.Qwt5.anynumpy import *
 from numpy import ravel, asarray
 from numpy import uint8 as UInt8
@@ -79,7 +79,7 @@ class PlotImage(Qwt.QwtPlotItem):
         for i in range(0, 256):
             p0 = int(numpy.floor((i/256.0)/len(points)))
             p1 = int(numpy.ceil((i/256.0)/len(points)))
-            rgb = map(lambda x: x[0]*max(0,(i-p0)) + x[1]*max(0,(i-p1)), zip(points[p0], points[p1]))
+            rgb = [x[0]*max(0,(i-p0)) + x[1]*max(0,(i-p1)) for x in zip(points[p0], points[p1])]
             self.image.setColor(i, QtGui.qRgb(rgb[0], rgb[1], rgb[2]))
 
     # setData()    

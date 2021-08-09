@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3
 #
 # Copyright 2015 Tim O'Shea
 #
@@ -23,7 +23,7 @@ import numpy
 from gnuradio import gr;
 import pylab
 import numpy
-from PyQt4 import Qt, QtCore, QtGui
+from PyQt5 import Qt, QtCore, QtGui
 import pmt,pprint
 
 class file_open(gr.sync_block, QtGui.QPushButton):
@@ -35,7 +35,7 @@ class file_open(gr.sync_block, QtGui.QPushButton):
    
     def open_file(self):
         fn = str(QtGui.QFileDialog.getOpenFileName(self, "Open Dataset").toUtf8())
-        print fn
+        print(fn)
         self.message_port_pub(pmt.intern("filename"), pmt.intern(fn))
 
     def work(self, input_items, output_items):

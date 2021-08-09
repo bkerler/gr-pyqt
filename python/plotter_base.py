@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3
 #
 # Copyright 2014 Tim O'Shea
 #
@@ -23,8 +23,8 @@ import numpy
 from gnuradio import gr;
 import pylab
 
-from PyQt4 import Qt, QtCore, QtGui
-import PyQt4.Qwt5 as Qwt
+from PyQt5 import Qt, QtCore, QtGui
+import PyQt5.Qwt6 as Qwt
 #from PyQt4.Qwt5.anynumpy import *
 import pmt
 
@@ -141,7 +141,7 @@ class plotter_base(gr.sync_block, Qwt.QwtPlot):
 
     # toggle grid status
     def toggle_grid(self):
-        print "toggle grid"
+        print("toggle grid")
         if self.grid == None:
             self.grid = Qwt.QwtPlotGrid()
             self.grid.enableXMin(True)
@@ -188,11 +188,11 @@ class plotter_base(gr.sync_block, Qwt.QwtPlot):
         for cd in self.curve_data:
             for c in cd:
                 if(numpy.isnan(numpy.sum(c))): 
-                    print "WARNING: gr-pyqt discarding NaN data"
+                    print("WARNING: gr-pyqt discarding NaN data")
                     return
         
         nchan = min(len(self.curves),len(self.curve_data))
-        map(lambda x: self.curves[x].setData(self.curve_data[x][0], self.curve_data[x][1]), range(0,nchan));
+        list(map(lambda x: self.curves[x].setData(self.curve_data[x][0], self.curve_data[x][1]), list(range(0,nchan))));
 
         if len(self.zoomer.zoomStack()) == 1:
             self.setAxisAutoScale(Qwt.QwtPlot.xBottom)

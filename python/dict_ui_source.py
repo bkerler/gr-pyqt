@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3
 #
 # Copyright 2015 Tim O'Shea
 #
@@ -19,7 +19,7 @@
 # the Free Software Foundation, Inc., 51 Franklin Street,
 # Boston, MA 02110-1301, USA.
 #
-from PyQt4 import Qt, QtCore, QtGui
+from PyQt5 import Qt, QtCore, QtGui
 import numpy
 from gnuradio import gr;
 import pylab,numpy,os
@@ -39,8 +39,8 @@ class dict_ui_source(gr.sync_block, QtGui.QGroupBox):
         self.lay = QtGui.QGridLayout(self)        
         #self.lay = QtGui.QVBoxLayout()        
         self.setWindowTitle("Many Controls")
-        for k,v in defaults.iteritems():
-            i = defaults.keys().index(k)
+        for k,v in defaults.items():
+            i = list(defaults.keys()).index(k)
             lbl = QtGui.QLabel(k)
             txt = QtGui.QLineEdit(str(v))
             self.lay.addWidget(lbl, i, 0)
@@ -49,15 +49,15 @@ class dict_ui_source(gr.sync_block, QtGui.QGroupBox):
             self.textinputs[k] = txt
         self.button = QtGui.QPushButton(str(submit_text))
         self.button.pressed.connect(self.button_clicked)
-        self.lay.addWidget(self.button, len(defaults.keys()), 0, 1, 2)
+        self.lay.addWidget(self.button, len(list(defaults.keys())), 0, 1, 2)
 
         # set up message ports
         self.message_port_register_out(pmt.intern("pdus"));
 
     def button_clicked(self):
-        print "clicked"
+        print("clicked")
         meta = {}
-        for k,v in self.textinputs.iteritems():
+        for k,v in self.textinputs.items():
             try:
                 meta[k] = int(str(v.text()))
             except:

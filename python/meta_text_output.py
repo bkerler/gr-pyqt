@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3
 #
 # Copyright 2014 Tim O'Shea
 #
@@ -21,7 +21,7 @@
 #
 import numpy,pylab,pmt,pprint
 from gnuradio import gr;
-from PyQt4 import Qt, QtCore, QtGui
+from PyQt5 import Qt, QtCore, QtGui
 
 class meta_text_output(gr.sync_block, QtGui.QTextEdit):
     __pyqtSignals__ = ("updateText(int)")

@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3
 #
 # Copyright 2014 Tim O'Shea
 #
@@ -23,7 +23,7 @@ import numpy
 from gnuradio import gr;
 import pylab
 import numpy
-from PyQt4 import Qt, QtCore, QtGui
+from PyQt5 import Qt, QtCore, QtGui
 import pmt
 
 class variable_text_input(gr.sync_block, QtGui.QLineEdit):
@@ -39,7 +39,7 @@ class variable_text_input(gr.sync_block, QtGui.QLineEdit):
         s = self.text().toUtf8();
         #nvec = numpy.fromstring((s), dtype=numpy.uint8, count=len(s));
         #vec = pmt.to_pmt(nvec);
-        print s
+        print(s)
         self.fn_update(eval(str(s)))
         #self.message_port_pub(pmt.intern("pdus"), pmt.cons(pmt.PMT_NIL, vec));
         #self.clear();

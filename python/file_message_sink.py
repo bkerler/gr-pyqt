@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3
 #
 # Copyright 2015 Tim O'Shea
 #
@@ -23,7 +23,7 @@ import numpy
 from gnuradio import gr;
 import pylab,numpy,os
 import pmt,pprint
-from PyQt4 import Qt, QtCore, QtGui
+from PyQt5 import Qt, QtCore, QtGui
 
 class file_message_sink(gr.sync_block, QtGui.QPushButton):
     def __init__(self,filename="/tmp/out.dat",filetype="complex64",label="Save", *args):
@@ -47,10 +47,10 @@ class file_message_sink(gr.sync_block, QtGui.QPushButton):
 
     def save_file(self):
         fn = str(QtGui.QFileDialog.getSaveFileName(self, "Open Dataset").toUtf8())
-        print "saving",fn
+        print("saving",fn)
         f = open(fn, "w")
         x = self.msg[1]
-        print type(x)
+        print(type(x))
         x.tofile(f)
         f.flush()
         f.close()

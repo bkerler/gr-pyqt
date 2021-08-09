@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3
 #
 # Copyright 2014 Tim O'Shea
 #
@@ -19,7 +19,7 @@
 # the Free Software Foundation, Inc., 51 Franklin Street,
 # Boston, MA 02110-1301, USA.
 #
-from plotter_base import *
+from .plotter_base import *
 class time_hist(plotter_base):
     def __init__(self, label="", *args):
         plotter_base.__init__(self, blkname="time_hist", label=label, *args)
@@ -49,7 +49,7 @@ class time_hist(plotter_base):
                 if pmt.is_u8vector(samples):
                     x = numpy.array(pmt.u8vector_elements(samples), dtype=numpy.float32)
                 else:
-                    print "unsupported pdu type in to pyqt.time_hist, please add the correct converted function"
+                    print("unsupported pdu type in to pyqt.time_hist, please add the correct converted function")
             
         # pass data
         (a,b) = numpy.histogram(x, 100);

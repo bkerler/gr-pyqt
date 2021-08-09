@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3
 #
 # Copyright 2015 Tim O'Shea
 #
@@ -81,7 +81,7 @@ class file_message_source(gr.sync_block):
         self.update_file_range()
 
     def file_open(self, msg):
-        print "open"
+        print("open")
         filename = pmt.to_python(msg)
         self.filename = filename    
         self.start()

@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 #
 # Copyright 2015 <+YOU OR YOUR COMPANY+>.
@@ -21,7 +21,7 @@
 
 import numpy
 from gnuradio import gr
-from PyQt4 import Qt, QtCore, QtGui
+from PyQt5 import Qt, QtCore, QtGui
 import pmt
 
 class table(gr.sync_block, QtGui.QTableWidget):
@@ -110,11 +110,11 @@ class table(gr.sync_block, QtGui.QTableWidget):
         if(not type(meta_dict) == type({})): 
             return
         # for now, we insist on having the row_id pmt within the meta field
-        if meta_dict.has_key(self.row_id):
+        if self.row_id in meta_dict:
             # get the current row identifier
             id_value = meta_dict[self.row_id]
             cur_idx = self.rowcount
-            create_new_row = id_value not in self.ids.keys()
+            create_new_row = id_value not in list(self.ids.keys())
 
             if create_new_row:
                 #print("Creating new Table Entry with "+str(id_value))
@@ -129,8 +129,8 @@ class table(gr.sync_block, QtGui.QTableWidget):
                 # if row id already exists, get and use the respective row idx
                 cur_idx = self.ids[id_value].row()
 
-            for col, idx in self.column_dict.iteritems():
-                if meta_dict.has_key(col) and col is not self.row_id:
+            for col, idx in self.column_dict.items():
+                if col in meta_dict and col is not self.row_id:
                     value = meta_dict[col]
                     # for now, we wont allow meta field entrys other than the specified columns
                     tab_item = QtGui.QTableWidgetItem(str(value))
@@ -143,7 +143,7 @@ class table(gr.sync_block, QtGui.QTableWidget):
                 if self.scroll_to_bottom:
                     self.updateTrigger.emit()
         else:
-            print("Meta Field "+self.row_id+" not found.")
+            print(("Meta Field "+self.row_id+" not found."))
 
         #self.setSortingEnabled(True)
 
