@@ -18,31 +18,31 @@
 # Boston, MA 02110-1301, USA.
 
 install(FILES
-    pdu_lambda.xml
-    stream_lambda.xml
-    time_plot.xml
-    raster_plot.xml
-    time_hist.xml
-    set_title.xml
-    value_plot.xml
-    value_hist.xml
-    const_plot.xml
-    ctime_plot.xml
-    cpsd_plot.xml
-    cpower_plot.xml
-    pdu_meta_extract.xml
-    text_input.xml
-    select_input.xml
-    variable_text_input.xml
-    range_input.xml
-    text_output.xml
-    meta_text_output.xml
-    skip_head.xml
-    head.xml
-    trim_tail.xml
-    file_message_source.xml
-    file_message_sink.xml
-    file_open.xml
-    dict_ui_source.xml
-    pyqt_table.xml DESTINATION share/gnuradio/grc/blocks
+    pdu_lambda.block.yml
+    stream_lambda.block.yml
+    time_plot.block.yml
+    raster_plot.block.yml
+    time_hist.block.yml
+    set_title.block.yml
+    value_plot.block.yml
+    value_hist.block.yml
+    const_plot.block.yml
+    ctime_plot.block.yml
+    cpsd_plot.block.yml
+    cpower_plot.block.yml
+    pdu_meta_extract.block.yml
+    text_input.block.yml
+    select_input.block.yml
+    variable_text_input.block.yml
+    range_input.block.yml
+    text_output.block.yml
+    meta_text_output.block.yml
+    skip_head.block.yml
+    head.block.yml
+    trim_tail.block.yml
+    file_message_source.block.yml
+    file_message_sink.block.yml
+    file_open.block.yml
+    dict_ui_source.block.yml
+    pyqt_table.block.yml DESTINATION share/gnuradio/grc/blocks
 )
